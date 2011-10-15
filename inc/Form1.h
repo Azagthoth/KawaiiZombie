@@ -26,6 +26,9 @@ public:
 // Implementation
 protected:
 	Bitmap* bitmap;
+	Bitmap* nurse;
+	Bitmap* souris1;
+	Bitmap* souris2;
 	Image* bitmapDecoder;
 	GameTimer* gameTimer;
 	Point* nursePosition;
