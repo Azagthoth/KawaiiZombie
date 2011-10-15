@@ -1,4 +1,5 @@
 #include "GameView.h"
+#include "World.h"
 
 using namespace Osp::Base;
 using namespace Osp::Ui;
@@ -45,7 +46,7 @@ GameView::OnInitializing(void)
 		AppLog("Failed to decode image!");
 	}
 
-
+	WorldManager::Instance()->Construct();
 	gameTimer = new GameTimer();
 	nursePosition = new Point(40, 40);
 	return r;
@@ -67,16 +68,17 @@ GameView::OnDraw(void)
     Canvas *pCanvas = GetCanvasN();
     if(pCanvas)
     {
-
     	pCanvas->SetBackgroundColor(Color::COLOR_YELLOW);
     	pCanvas->Clear();
-    	pCanvas->SetForegroundColor(Color::COLOR_RED);
+
+    	WorldManager::Instance()->Draw(pCanvas);
     	//pCanvas->DrawRectangle(Rectangle(50, 50, 100, 100));
     	pCanvas->DrawBitmap(*nursePosition,*bitmap);
         delete pCanvas;
 
     	AppLog("OnDraw success \n");
     }
+
     // do not call Show(), it will be called automatically after this callback function
     return E_SUCCESS;
 }
@@ -98,6 +100,7 @@ void GameView::update(int delta)
 }
 void GameView::draw(int delta)
 {
+	AppLog("Drawing");
 	Draw();
 	Show();
 }
