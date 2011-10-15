@@ -57,6 +57,7 @@ KawaiiZombie::OnAppInitializing(AppRegistry& appRegistry)
 	// Draw and Show the form
 	pForm1->Draw();
 	pForm1->Show();
+	pForm1->startTimer();
 
 	return true;
 }

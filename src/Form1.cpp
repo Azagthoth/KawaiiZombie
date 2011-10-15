@@ -45,6 +45,9 @@ Form1::OnInitializing(void)
 		AppLog("Failed to decode image!");
 	}
 
+
+	gameTimer = new GameTimer();
+	nursePosition = new Point(40, 40);
 	return r;
 }
 
@@ -69,13 +72,34 @@ Form1::OnDraw(void)
     	pCanvas->Clear();
     	pCanvas->SetForegroundColor(Color::COLOR_RED);
     	//pCanvas->DrawRectangle(Rectangle(50, 50, 100, 100));
-    	pCanvas->DrawBitmap(*(new Point(40,100)),*bitmap);
+    	pCanvas->DrawBitmap(*nursePosition,*bitmap);
         delete pCanvas;
 
     	AppLog("OnDraw success \n");
     }
     // do not call Show(), it will be called automatically after this callback function
     return E_SUCCESS;
+}
+
+void Form1::startTimer()
+{
+	gameTimer->construct(this, 5, true);
+	gameTimer->start(20);
+}
+
+void Form1::update(int delta)
+{
+	AppLog("Updating with delta : %d", delta);
+	nursePosition->x += 5;
+	if(nursePosition->x > 200)
+	{
+		nursePosition->x = 40;
+	}
+}
+void Form1::draw(int delta)
+{
+	Draw();
+	Show();
 }
 
 void Form1::OnTouchPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo & touchInfo)
