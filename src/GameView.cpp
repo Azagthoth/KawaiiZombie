@@ -43,6 +43,16 @@ GameView::OnInitializing(void)
 	WorldManager::Instance()->Construct();
 	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/bg_hospital.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(0, 0), new String("Background")));
 	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/hero_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(400, 240), new String(NURSE)));
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(20, 20), new String(ZOMBIE)));
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(600, 20), new String(ZOMBIE)));
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(40, 360), new String(ZOMBIE)));
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(700, 330), new String(ZOMBIE)));
+		/*Player* pPlayer = new Player();
+	pPlayer->Construct(*this, null);
+	pPlayer->OpenFile(String(L"/Home/Res/MainMusic.mp3"));
+	pPlayer->SetVolume(50);
+	pPlayer->Play();*/
+
 	gameTimer = new GameTimer();
 	return r;
 }
@@ -127,3 +137,11 @@ void GameView::OnTouchFocusIn(const Osp::Ui::Control& source,const Osp::Graphics
 void GameView::OnTouchFocusOut(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {
 }
+
+void GameView::OnPlayerBuffering (int percent){}
+void GameView::OnPlayerEndOfClip (void){}
+void GameView::OnPlayerErrorOccurred (PlayerErrorReason r){}
+void GameView::OnPlayerInterrupted (void){}
+void GameView::OnPlayerOpened (result r){}
+void GameView::OnPlayerReleased (void){}
+void GameView::OnPlayerSeekCompleted( result r ){}

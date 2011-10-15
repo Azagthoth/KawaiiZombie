@@ -20,7 +20,8 @@ class GameTimer; //forward declaration
 
 class GameView :
 	public Osp::Ui::Controls::Form,
-	public Osp::Ui::ITouchEventListener
+	public Osp::Ui::ITouchEventListener,
+	public Osp::Media::IPlayerEventListener
 {
 
 // Construction
@@ -51,6 +52,14 @@ public:
 	virtual void OnTouchFocusIn (const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
 	virtual void OnTouchFocusOut (const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
 	virtual void OnTouchLongPressed (const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
+
+	virtual void OnPlayerBuffering (int percent);
+	virtual void OnPlayerEndOfClip (void);
+	virtual void OnPlayerErrorOccurred (PlayerErrorReason r);
+	virtual void OnPlayerInterrupted (void);
+	virtual void OnPlayerOpened (result r);
+	virtual void OnPlayerReleased (void);
+	virtual void OnPlayerSeekCompleted( result r );
 };
 
 #endif /* GAMEVIEW_H_ */
