@@ -7,7 +7,7 @@
 
 
 #include "KawaiiZombie.h"
-#include "Form1.h"
+#include "GameView.h"
 
 using namespace Osp::App;
 using namespace Osp::Base;
@@ -44,20 +44,20 @@ KawaiiZombie::OnAppInitializing(AppRegistry& appRegistry)
 	//PowerManager::SetScreenEventListener(*this);
 
 	// Create a form
-	Form1 *pForm1 = new Form1();
-	pForm1->Initialize();
+	GameView *pGameView = new GameView();
+	pGameView->Initialize();
 
 	// Add the form to the frame
 	Frame *pFrame = GetAppFrame()->GetFrame();
-	pFrame->AddControl(*pForm1);
+	pFrame->AddControl(*pGameView);
 
 	// Set the current form
-	pFrame->SetCurrentForm(*pForm1);
+	pFrame->SetCurrentForm(*pGameView);
 
 	// Draw and Show the form
-	pForm1->Draw();
-	pForm1->Show();
-	pForm1->startTimer();
+	pGameView->Draw();
+	pGameView->Show();
+	pGameView->startTimer();
 
 	return true;
 }
