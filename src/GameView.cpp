@@ -116,7 +116,7 @@ void GameView::OnTouchMoved(const Osp::Ui::Control& source,const Osp::Graphics::
 {
 	AppLog("Moving nurse");
 	KImage* nurse = WorldManager::Instance()->getImageByName(new String(NURSE));
-	nurse->position->SetPosition(currentPosition);
+	nurse->position->SetPosition(currentPosition - Point(nurse->ressource->GetWidth()/2, nurse->ressource->GetHeight()/2));
 }
 void GameView::OnTouchDoublePressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {
