@@ -27,13 +27,22 @@ Form1::OnInitializing(void)
 	result r = E_SUCCESS;
 
 	// TODO: Add your initialization code here
+	AddTouchEventListener(*this);
+	//code from http://www.badadev.com/bada-tutorial-displaying-a-transparent-image-on-a-form/
+	bitmapDecoder = new Image();
 
-	// Get a button via resource ID
-	__pButtonOk = static_cast<Button *>(GetControl(L"IDC_BUTTON_OK"));
-	if (__pButtonOk != null)
+	// 3. Construct the decoder
+	r= bitmapDecoder->Construct();
+	if(IsFailed(r))
 	{
-		__pButtonOk->SetActionId(ID_BUTTON_OK);
-		__pButtonOk->AddActionEventListener(*this);
+		AppLog("Failed to construct decoder!");
+	}
+
+	// 4. decode the image with alphas (to allow transparency)
+	bitmap = bitmapDecoder->DecodeN(L"/Home/Res/Nurse.png", BITMAP_PIXEL_FORMAT_ARGB8888);
+	if(!bitmap)
+	{
+		AppLog("Failed to decode image!");
 	}
 
 	return r;
@@ -49,19 +58,52 @@ Form1::OnTerminating(void)
 	return r;
 }
 
-void
-Form1::OnActionPerformed(const Osp::Ui::Control& source, int actionId)
+result
+Form1::OnDraw(void)
 {
-	switch(actionId)
-	{
-	case ID_BUTTON_OK:
-		{
-			AppLog("OK Button is clicked! \n");
-		}
-		break;
-	default:
-		break;
-	}
+    Canvas *pCanvas = GetCanvasN();
+    if(pCanvas)
+    {
+
+    	pCanvas->SetBackgroundColor(Color::COLOR_YELLOW);
+    	pCanvas->Clear();
+    	pCanvas->SetForegroundColor(Color::COLOR_RED);
+    	//pCanvas->DrawRectangle(Rectangle(50, 50, 100, 100));
+    	pCanvas->DrawBitmap(*(new Point(40,100)),*bitmap);
+        delete pCanvas;
+
+    	AppLog("OnDraw success \n");
+    }
+    // do not call Show(), it will be called automatically after this callback function
+    return E_SUCCESS;
 }
+
+void Form1::OnTouchPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo & touchInfo)
+{
+	AppLog("OnTouchPressed is reached \n");
+	Touch touch;
+	// Set the Start info list to the current touch info list
+	//pStartInfoList = touch.GetTouchInfoListN(source);
+}
+
+void Form1::OnTouchLongPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
+{
+}
+void Form1::OnTouchReleased(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
+{
+}
+void Form1::OnTouchMoved(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
+{
+}
+void Form1::OnTouchDoublePressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
+{
+}
+void Form1::OnTouchFocusIn(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
+{
+}
+void Form1::OnTouchFocusOut(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
+{
+}
+
 
 
