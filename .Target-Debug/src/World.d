@@ -176,7 +176,8 @@ src/World.d src/World.o: ../src/World.cpp \
  C:/bada/2.0.2/include/FIoClientChannel.h \
  C:/bada/2.0.2/include/FIoIChannelResponseEventListener.h \
  C:/bada/2.0.2/include/FIoServerChannel.h \
- C:/bada/2.0.2/include/FIoIChannelRequestEventListener.h
+ C:/bada/2.0.2/include/FIoIChannelRequestEventListener.h \
+ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Singleton.h
 
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/World.h:
 
@@ -579,3 +580,5 @@ C:/bada/2.0.2/include/FIoIChannelResponseEventListener.h:
 C:/bada/2.0.2/include/FIoServerChannel.h:
 
 C:/bada/2.0.2/include/FIoIChannelRequestEventListener.h:
+
+C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Singleton.h:

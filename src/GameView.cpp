@@ -27,7 +27,7 @@ result
 GameView::OnInitializing(void)
 {
 	result r = E_SUCCESS;
-
+	SetOrientation(ORIENTATION_LANDSCAPE);
 	// TODO: Add your initialization code here
 	AddTouchEventListener(*this);
 	//code from http://www.badadev.com/bada-tutorial-displaying-a-transparent-image-on-a-form/
@@ -41,6 +41,7 @@ GameView::OnInitializing(void)
 	}
 
 	WorldManager::Instance()->Construct();
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/bg_hospital.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(0, 0), new String("Background")));
 	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/hero_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(400, 240), new String(NURSE)));
 	gameTimer = new GameTimer();
 	return r;

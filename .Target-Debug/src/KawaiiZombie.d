@@ -288,7 +288,7 @@ src/KawaiiZombie.d src/KawaiiZombie.o: ../src/KawaiiZombie.cpp \
  C:/bada/2.0.2/include/FUiRelativeLayout.h \
  C:/bada/2.0.2/include/FUiGridLayout.h \
  C:/bada/2.0.2/include/FUiCustomControlBase.h \
- C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Form1.h \
+ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameView.h \
  C:/bada/2.0.2/include/FGrpCanvas.h C:/bada/2.0.2/include/FMedia.h \
  C:/bada/2.0.2/include/FMediaImage.h C:/bada/2.0.2/include/FGraphics.h \
  C:/bada/2.0.2/include/FMediaConfig.h \
@@ -365,7 +365,7 @@ src/KawaiiZombie.d src/KawaiiZombie.o: ../src/KawaiiZombie.cpp \
  C:/bada/2.0.2/include/FIoServerChannel.h \
  C:/bada/2.0.2/include/FIoIChannelRequestEventListener.h \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameTimer.h \
- C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Form1.h
+ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameView.h
 
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/KawaiiZombie.h:
 
@@ -1001,7 +1001,7 @@ C:/bada/2.0.2/include/FUiGridLayout.h:
 
 C:/bada/2.0.2/include/FUiCustomControlBase.h:
 
-C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Form1.h:
+C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameView.h:
 
 C:/bada/2.0.2/include/FGrpCanvas.h:
 
@@ -1171,4 +1171,4 @@ C:/bada/2.0.2/include/FIoIChannelRequestEventListener.h:
 
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameTimer.h:
 
-C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Form1.h:
+C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameView.h:

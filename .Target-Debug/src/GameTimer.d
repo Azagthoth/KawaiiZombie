@@ -1,6 +1,6 @@
 src/GameTimer.d src/GameTimer.o: ../src/GameTimer.cpp \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameTimer.h \
- C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Form1.h \
+ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameView.h \
  C:/bada/2.0.2/include/FBase.h C:/bada/2.0.2/include/FBaseTypes.h \
  C:/bada/2.0.2/include/FBaseSys.h C:/bada/2.0.2/include/FBaseConfig.h \
  C:/bada/2.0.2/include/FBaseDataType.h \
@@ -348,7 +348,7 @@ src/GameTimer.d src/GameTimer.o: ../src/GameTimer.cpp \
 
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameTimer.h:
 
-C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Form1.h:
+C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameView.h:
 
 C:/bada/2.0.2/include/FBase.h:
 

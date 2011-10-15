@@ -5,7 +5,6 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
 ../src/Dart.cpp \
-../src/Form1.cpp \
 ../src/GameTimer.cpp \
 ../src/GameView.cpp \
 ../src/KImage.cpp \
@@ -17,7 +16,6 @@ CPP_SRCS += \
 
 OBJS += \
 ./src/Dart.o \
-./src/Form1.o \
 ./src/GameTimer.o \
 ./src/GameView.o \
 ./src/KImage.o \
@@ -29,7 +27,6 @@ OBJS += \
 
 CPP_DEPS += \
 ./src/Dart.d \
-./src/Form1.d \
 ./src/GameTimer.d \
 ./src/GameView.d \
 ./src/KImage.d \

@@ -46,7 +46,7 @@ all: KawaiiZombie.exe
 KawaiiZombie.exe: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: bada C++ Linker'
-	@echo 'ldflags: -L"C:/bada/2.0.2/Model/WaveWVGA/Target" -L"C:/Users/Fradow/Desktop/Git/KawaiiZombie/lib" -shared -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -o"KawaiiZombie.exe" ./src/Dart.o ./src/Form1.o ./src/GameTimer.o ./src/GameView.o ./src/KImage.o ./src/KawaiiZombie.o ./src/KawaiiZombieEntry.o ./src/Nurse.o ./src/World.o ./src/Zombie.o '
+	@echo 'ldflags: -L"C:/bada/2.0.2/Model/WaveWVGA/Target" -L"C:/Users/Fradow/Desktop/Git/KawaiiZombie/lib" -shared -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -o"KawaiiZombie.exe" ./src/Dart.o ./src/GameTimer.o ./src/GameView.o ./src/KImage.o ./src/KawaiiZombie.o ./src/KawaiiZombieEntry.o ./src/Nurse.o ./src/World.o ./src/Zombie.o '
 	arm-samsung-nucleuseabi-g++ @ldflags @ldobjs  $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
