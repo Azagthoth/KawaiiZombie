@@ -17,7 +17,7 @@ using namespace Osp::Base;
 
 class KImage {
 public:
-	KImage();
+	KImage(Bitmap* image, Point* pos, String* string);
 	virtual ~KImage();
 	Bitmap* ressource;
 	Point* position;

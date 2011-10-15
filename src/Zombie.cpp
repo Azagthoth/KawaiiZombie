@@ -7,7 +7,7 @@
 
 #include "Zombie.h"
 
-Zombie::Zombie() {
+Zombie::Zombie(Bitmap* image, Point* pos, String* string) : KImage(image, pos, string) {
 	// TODO Auto-generated constructor stub
 
 }

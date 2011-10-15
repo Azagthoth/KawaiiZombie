@@ -28,7 +28,7 @@ result World::Construct()
 }
 void World::AddImage(KImage* image)
 {
-	images->Add((Object&)image);
+	images->Add((Object&)*image);
 }
 void World::MoveView(Point* offset)
 {
@@ -36,19 +36,24 @@ void World::MoveView(Point* offset)
 }
 void World::Draw(Canvas* target)
 {
-	IEnumerator* pEnum = images->GetEnumeratorN();
+	/*IEnumerator* pEnum = images->GetEnumeratorN();
 	KImage* img = null;
 	while (pEnum->MoveNext() == E_SUCCESS)
 	{
-		img = (KImage*)pEnum->GetCurrent();
+		img = (KImage*)(pEnum->GetCurrent());
 		target->DrawBitmap(*(img->position), *(img->ressource));
 	}
 
-	delete pEnum;
+	delete pEnum;*/
+	for(int i = 0; i < images->GetCount(); i++)
+	{
+		KImage* img = (KImage*)images->GetAt(i);
+		target->DrawBitmap(*(img->position), *(img->ressource));
+	}
 }
 void World::Update(int delta)
 {
-	IEnumerator* pEnum = images->GetEnumeratorN();
+	/*IEnumerator* pEnum = images->GetEnumeratorN();
 	KImage* img = null;
 	while (pEnum->MoveNext() == E_SUCCESS)
 	{
@@ -56,7 +61,12 @@ void World::Update(int delta)
 		img->Update(delta);
 	}
 
-	delete pEnum;
+	delete pEnum;*/
+	for(int i = 0; i < images->GetCount(); i++)
+	{
+		KImage* img = (KImage*)images->GetAt(i);
+		img->Update(delta);
+	}
 }
 KImage* World::getImageByName(String* name)
 {

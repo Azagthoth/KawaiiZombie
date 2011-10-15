@@ -12,7 +12,7 @@
 
 class Zombie : KImage {
 public:
-	Zombie();
+	Zombie(Bitmap* image, Point* pos, String* string);
 	virtual ~Zombie();
 };
 
