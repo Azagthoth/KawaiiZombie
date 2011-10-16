@@ -8,10 +8,17 @@
 #ifndef DART_H_
 #define DART_H_
 
-class Dart {
+#include "KImagE.h"
+
+class Dart : public KImage
+{
 public:
-	Dart();
+	Dart(Bitmap* image, Point* pos, String string, Point direction);
 	virtual ~Dart();
+
+	virtual void Update(int delta);
+protected:
+	Point movementOffset;
 };
 
 #endif /* DART_H_ */

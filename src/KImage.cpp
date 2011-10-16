@@ -15,6 +15,8 @@ KImage::KImage(Bitmap* image, Point* pos, String string)
 }
 
 KImage::~KImage() {
+	delete position;
+	delete ressource;
 	// TODO Auto-generated destructor stub
 }
 

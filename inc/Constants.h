@@ -15,6 +15,8 @@
 #define NURSE_SPEED 2
 #define ZOMBIE_SPEED 1
 #define NURSE_MAX_LIFE 1
+#define DART_SPEED 2
+#define DART_REFIRE_TIME 100 //in milliseconds
 
 //################################################################
 //######################## Actions ID ############################
