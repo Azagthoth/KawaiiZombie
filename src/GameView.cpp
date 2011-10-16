@@ -1,9 +1,9 @@
 #include "GameView.h"
 #include "World.h"
 #include "Constants.h"
-#include "math.h"
+#include <math.h>
 #include "Zombie.h"
-#include "Sound.h"
+#include <Sound.h>
 #include "GameTimer.h"
 
 using namespace Osp::Base;

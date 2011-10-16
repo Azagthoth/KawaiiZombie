@@ -234,7 +234,7 @@ BaseController::ShowWaitIndicator()
 	{
 		__waitPopup = new Popup();
 		__waitPopup->Construct(L"IDP_POPUP_WAIT");
-		__waitPopup->AddWindowEventListener(*this);
+	//	__waitPopup->AddWindowEventListener(*this);
 		__waitPopup->Show();
 	}
 }
@@ -253,35 +253,35 @@ BaseController::HideWaitIndicator()
 	}
 }
 
-void
-BaseController::OnWindowActivated(const Window &source)
-{
-	if (&source == __waitPopup)
-	{
-		Flash *waitAnimation = static_cast<Flash *>(__waitPopup->GetControl("IDC_FLASH_WAIT_ANIMATION"));
-		waitAnimation->Play();
-	}
-}
-
-void
-BaseController::OnWindowClosed(const Window &source)
-{
-}
-
-void
-BaseController::OnWindowDeactivated(const Window &source)
-{
-	if (&source == __waitPopup)
-	{
-		Flash *waitAnimation = static_cast<Flash *>(__waitPopup->GetControl("IDC_FLASH_WAIT_ANIMATION"));
-		waitAnimation->Stop();
-	}
-}
-
-void
-BaseController::OnWindowOpened(const Window &source)
-{
-}
+//void
+//BaseController::OnWindowActivated(const Window &source)
+//{
+//	if (&source == __waitPopup)
+//	{
+//		Flash *waitAnimation = static_cast<Flash *>(__waitPopup->GetControl("IDC_FLASH_WAIT_ANIMATION"));
+//		waitAnimation->Play();
+//	}
+//}
+//
+//void
+//BaseController::OnWindowClosed(const Window &source)
+//{
+//}
+//
+//void
+//BaseController::OnWindowDeactivated(const Window &source)
+//{
+//	if (&source == __waitPopup)
+//	{
+//		Flash *waitAnimation = static_cast<Flash *>(__waitPopup->GetControl("IDC_FLASH_WAIT_ANIMATION"));
+//		waitAnimation->Stop();
+//	}
+//}
+//
+//void
+//BaseController::OnWindowOpened(const Window &source)
+//{
+//}
 
 /*--------------------------------------------------------------------------*/
 /*--- Popup message support ------------------------------------------------*/

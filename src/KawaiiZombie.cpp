@@ -59,6 +59,8 @@ KawaiiZombie::OnAppInitializing(AppRegistry& appRegistry)
 	pFormHome->Draw();
 	pFormHome->Show();
 
+	//pFormHome->PlaySound();
+
 	return true;
 }
 

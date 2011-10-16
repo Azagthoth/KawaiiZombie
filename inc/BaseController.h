@@ -25,8 +25,8 @@ typedef enum
 class BaseController:
 	public Osp::Ui::Controls::Form,
 	public Osp::Ui::IActionEventListener,
-	public Osp::Ui::IOrientationEventListener,
-	public Osp::Ui::IWindowEventListener
+	public Osp::Ui::IOrientationEventListener
+	//public Osp::Ui::IWindowEventListener
 {
 public:
 	static Osp::Ui::Controls::Form& GetCurrent();
@@ -154,10 +154,10 @@ protected:
 	void HideWaitIndicator();
 
 public:
-	void OnWindowActivated(const Osp::Ui::Window &source);
-	void OnWindowClosed(const Osp::Ui::Window &source);
-	void OnWindowDeactivated(const Osp::Ui::Window &source);
-	void OnWindowOpened(const Osp::Ui::Window &source);
+//	void OnWindowActivated(const Osp::Ui::Window &source);
+//	void OnWindowClosed(const Osp::Ui::Window &source);
+//	void OnWindowDeactivated(const Osp::Ui::Window &source);
+//	void OnWindowOpened(const Osp::Ui::Window &source);
 
 private:
 

@@ -13,7 +13,7 @@
 #include <FGraphics.h>
 #include <FUi.h>
 #include "Singleton.h"
-using namespace Osp::Media;
+
 
 class Sound {
 
@@ -21,9 +21,9 @@ class Sound {
 		Sound1,
 		Sound2
 	} SoundId;
-
+public:
  class MyPlayerListener
-    : public IPlayerEventListener
+    : public Osp::Media::IPlayerEventListener
  {
     public:
     MyPlayerListener() {
@@ -31,7 +31,7 @@ class Sound {
     void OnPlayerOpened(result r);
     void OnPlayerEndOfClip(void);
     void OnPlayerBuffering(int percent);
-    void OnPlayerErrorOccurred(PlayerErrorReason r );
+    void OnPlayerErrorOccurred(Osp::Media::PlayerErrorReason r );
     void OnPlayerInterrupted();
     void OnPlayerReleased();
     void OnPlayerSeekCompleted(result r);
@@ -45,7 +45,7 @@ class Sound {
 	 CPlaySound(Sound::SoundId sound=Sound1);
     ~CPlaySound(void);
 
-    //void* Run(void);
+    Osp::Base::Object * Run();
 
     protected:
     Sound::SoundId _soundId;
@@ -55,11 +55,11 @@ public:
 	Sound();
 	virtual ~Sound();
 	result TestAudioPlaying(void);
-	inline Player* GetPlayer(){ return _pPlayer;}
+	inline Osp::Media::Player* GetPlayer(){ return _pPlayer;}
 	result Play(SoundId id = Sound1);
 
 protected:
-	Player* _pPlayer;
+	Osp::Media::Player* _pPlayer;
 	MyPlayerListener* _pListener;
 
 };

@@ -9,6 +9,7 @@
 #include "Constants.h"
 
 using namespace Osp::Base;
+using namespace Osp::Media;
 
 Osp::Base::String path0("/Res/Sounds/KawaiiZombies_speedcoremix.mp3");
 
@@ -29,25 +30,25 @@ void Sound::MyPlayerListener::OnPlayerOpened(result r)
 {
 	//This listener is used when OpenXXX() is set to work asynchronously.
 	//Insert your code to operate after the resource is opened.
-	result rt = E_SUCCESS;
-	rt = SoundMgr::Instance()->GetPlayer()->Play();
-
-	if (IsFailed(rt))
-	{
-		//Need to handle the exception.
-	}
+//	result rt = E_SUCCESS;
+//	rt = SoundMgr::Instance()->GetPlayer()->Play();
+//
+//	if (IsFailed(rt))
+//	{
+//		//Need to handle the exception.
+//	}
 }
 
 
 void Sound::MyPlayerListener::OnPlayerEndOfClip(void)
 {
 	//Insert your code to operate after the player reaches end of clip.
-	result r = E_SUCCESS;
-	r = SoundMgr::Instance()->GetPlayer()->Play();
-	if (IsFailed(r))
-	{
-		//Handle the exception.
-	}
+//	result r = E_SUCCESS;
+//	r = SoundMgr::Instance()->GetPlayer()->Play();
+//	if (IsFailed(r))
+//	{
+//		//Handle the exception.
+//	}
 }
 
 void Sound::MyPlayerListener::OnPlayerBuffering(int percent)
@@ -89,24 +90,24 @@ result Sound::TestAudioPlaying(void)
 	}
 
 	// Open file asynchronously
-	r = _pPlayer->OpenFile(path0, true);
+	r = _pPlayer->OpenFile(path0);
 	if (IsFailed(r)) goto CATCH;
 
 	r = _pPlayer->SetLooping(true);
 	if (IsFailed(r)) goto CATCH;
 
-	r = _pPlayer->SetVolume(80);
+	r = _pPlayer->SetVolume(100);
 	if (IsFailed(r)) goto CATCH;
 
 	r = _pPlayer->Play();
 
-	AppLogDebug(" <<<<< Result from audio player : %s ", GetErrorMessage(r));
-
-	CATCH:
-	SAFE_DELETE(_pPlayer);
-	SAFE_DELETE(_pListener);
-
 	return r;
+
+	CATCH:{
+		SAFE_DELETE(_pPlayer);
+		SAFE_DELETE(_pListener);
+		return E_FAILURE;
+	}
 }
 
 result Sound::Play(SoundId id){
@@ -138,14 +139,19 @@ result Sound::Play(SoundId id){
 	r = _pPlayer->SetLooping(true);
 	if (IsFailed(r)) goto CATCH;
 
-	r = _pPlayer->SetVolume(10);
+	r = _pPlayer->SetVolume(100);
 	if (IsFailed(r)) goto CATCH;
 
-	CATCH:
-	SAFE_DELETE(_pPlayer);
-	SAFE_DELETE(_pListener);
+	r = _pPlayer->Play();
+	if (IsFailed(r)) goto CATCH;
 
 	return r;
+
+	CATCH:{
+		SAFE_DELETE(_pPlayer);
+		SAFE_DELETE(_pListener);
+		return E_FAILURE;
+	}
 }
 
 Sound::CPlaySound::CPlaySound(Sound::SoundId sound) {
@@ -155,8 +161,7 @@ Sound::CPlaySound::CPlaySound(Sound::SoundId sound) {
 Sound::CPlaySound::~CPlaySound(void) {
 	// Destructor
 	}
-
-//void*	Sound::CPlaySound::Run(void) {
-//
-//}
+Object*	Sound::CPlaySound::Run(void) {
+	SoundMgr::Instance()->Play(_soundId);
+}
 

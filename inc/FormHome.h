@@ -4,11 +4,13 @@
 
 #include <FBase.h>
 #include <FUi.h>
+#include <FMedia.h>
 #include "BaseController.h"
 
 
 class FormHome :
-	public BaseController
+	public BaseController,
+	public Osp::Media::IPlayerEventListener
 {
 		//Actions ids
 		enum{
@@ -25,6 +27,14 @@ public:
 	bool Initialize();
 	result OnInitializing(void);
 	result OnTerminating(void);
+	//result PlaySound();
+
+	 void OnPlayerOpened(result r)	;
+	    void OnPlayerEndOfClip(void);
+	    void OnPlayerBuffering(int percent);
+	    void OnPlayerErrorOccurred(Osp::Media::PlayerErrorReason r );
+	    void OnPlayerInterrupted();
+	    void OnPlayerReleased();
 
 // Implementation
 protected:
@@ -32,6 +42,9 @@ protected:
 	Osp::Ui::Controls::Button* _pScoreBtn;
 	Osp::Ui::Controls::Button* _pHelpBtn;
 	Osp::Ui::Controls::Button* _pCreditsBtn;
+	Osp::Base::Runtime::Thread*	   _pSoundThread;
+
+	Osp::Media::Player* _pPlayer;
 
 // Generated call-back functions
 public:
