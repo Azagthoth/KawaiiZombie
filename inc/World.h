@@ -31,6 +31,7 @@ public:
 protected:
 	Point* viewPosition;
 	ArrayList* images;
+	ArrayList* imagesToAdd;
 	Nurse* nurse;
 };
 

@@ -9,6 +9,7 @@
 #include "FBase.h"
 
 #include "Constants.h"
+#include "Dart.h"
 
 using namespace Osp::Base::Collection;
 
@@ -26,12 +27,15 @@ result World::Construct()
 {
 	images = new ArrayList();
 	images->Construct();
+	imagesToAdd = new ArrayList();
+	imagesToAdd->Construct();
 	viewPosition = new Point(1200, 720);
 	return E_SUCCESS;
 }
 void World::AddImage(KImage* image)
 {
-	images->Add(*image);
+	//TODO : add images on next update
+	imagesToAdd->Add(*image);
 }
 
 void World::SetNurse(Nurse* image)
@@ -55,7 +59,15 @@ void World::Draw(Canvas* target)
 	while (pEnum->MoveNext() == E_SUCCESS)
 	{
 		img = (KImage*)(pEnum->GetCurrent());
-		target->DrawBitmap(*(img->position), *(img->ressource));
+		if(img->name.Equals(DART, true))
+		{
+			Dart* dart = (Dart*)img;
+			target->DrawBitmap(*(img->position), *(img->ressource), Point(dart->ressource->GetWidth()/2, dart->ressource->GetHeight()/2), (int)dart->GetAngle());
+		}
+		else
+		{
+			target->DrawBitmap(*(img->position), *(img->ressource));
+		}
 	}
 
 	delete pEnum;
@@ -91,6 +103,9 @@ void World::Update(int delta)
 	images->RemoveItems(*toDelete, true);
 	delete toDelete;
 	delete pEnum;
+
+	images->AddItems(*imagesToAdd);
+	imagesToAdd->RemoveAll(false);
 	//TODO : check darts to delete out of bounds ones
 }
 KImage* World::GetImageByName(String name)

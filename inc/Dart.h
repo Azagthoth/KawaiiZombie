@@ -17,8 +17,10 @@ public:
 	virtual ~Dart();
 
 	virtual void Update(int delta);
+	float GetAngle();
 protected:
 	Point movementOffset;
+	float angle;
 };
 
 #endif /* DART_H_ */
