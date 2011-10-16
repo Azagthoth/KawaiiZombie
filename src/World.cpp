@@ -55,6 +55,22 @@ void World::DeleteImage(KImage* image)
 	}
 }
 
+void World::DeleteImages(ArrayList* images)
+{
+	IEnumerator* pEnum = images->GetEnumeratorN();
+	KImage* img = null;
+	while (pEnum->MoveNext() == E_SUCCESS)
+	{
+		img = (KImage*)(pEnum->GetCurrent());
+		if(!imagesToDelete->Contains(*img))
+		{
+			imagesToDelete->Add(*img);
+		}
+	}
+
+	delete pEnum;
+}
+
 void World::SetNurse(Nurse* image)
 {
 	nurse = image;

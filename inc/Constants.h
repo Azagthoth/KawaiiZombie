@@ -10,6 +10,7 @@
 #define ZOMBIE_DEAD String("ZombieDead")
 #define DART String("Dart")
 #define LIFE String("Life")
+#define LOOSE String("Loose")
 
 #define WORLD_HEIGHT 480 * 3
 #define WORLD_WIDTH 800 * 3

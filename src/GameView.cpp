@@ -122,7 +122,16 @@ void GameView::draw(int delta)
 
 void GameView::OnTouchPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo & touchInfo)
 {
-		OnTouchMoved(source, currentPosition, touchInfo);
+	if(WorldManager::Instance()->GetImageByName(LOOSE) != null)
+	{
+		ArrayList* zombies = WorldManager::Instance()->GetImagesByNameN(ZOMBIE);
+		WorldManager::Instance()->DeleteImages(zombies);
+		delete zombies;
+		WorldManager::Instance()->DeleteImage(WorldManager::Instance()->GetImageByName(LOOSE));
+		WorldManager::Instance()->GetNurse()->position->SetPosition(400, 240);
+		WorldManager::Instance()->GetNurse()->ResetLife();
+	}
+	OnTouchMoved(source, currentPosition, touchInfo);
 }
 
 void GameView::OnTouchLongPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)

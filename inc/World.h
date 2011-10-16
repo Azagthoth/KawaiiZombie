@@ -22,6 +22,7 @@ public:
 	result Construct();
 	void AddImage(KImage* image);
 	void DeleteImage(KImage* image);
+	void DeleteImages(ArrayList* images);
 	void SetNurse(Nurse* image);
 	Nurse* GetNurse();
 	void MoveView(Point* offset);

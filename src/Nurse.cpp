@@ -93,7 +93,7 @@ void Nurse::GetHit()
 		WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(url, BITMAP_PIXEL_FORMAT_ARGB8888), new Point(48, 48), LIFE));
 		if(life == 0)
 		{
-			WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/lose.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(400-128, 240- 128), LIFE));
+			WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/lose.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(400-128, 240- 128), LOOSE));
 		}
 		delete bitmapDecoder;
 
@@ -101,5 +101,6 @@ void Nurse::GetHit()
 }
 void Nurse::ResetLife()
 {
-	life = NURSE_MAX_LIFE;
+	life = NURSE_MAX_LIFE + 1;
+	GetHit();
 }
