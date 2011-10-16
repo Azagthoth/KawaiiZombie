@@ -21,6 +21,8 @@ public:
 	virtual ~World();
 	result Construct();
 	void AddImage(KImage* image);
+	void DeleteImage(KImage* image);
+	void DeleteImages(ArrayList* images);
 	void SetNurse(Nurse* image);
 	Nurse* GetNurse();
 	void MoveView(Point* offset);
@@ -31,7 +33,12 @@ public:
 protected:
 	Point* viewPosition;
 	ArrayList* images;
+	ArrayList* imagesToAdd;
+	ArrayList* imagesToDelete;
 	Nurse* nurse;
+
+	int nextZombieSpawn;
+	int time;
 };
 
 

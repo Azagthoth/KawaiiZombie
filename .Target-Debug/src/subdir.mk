@@ -56,8 +56,8 @@ CPP_DEPS += \
 src/%.o: ../src/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: bada C++ Compiler'
-	arm-samsung-nucleuseabi-g++ -D_DEBUG -DSHP -I"C:/DEV/bada/2.0.2/include" -I"C:/DEV/bada/Workspace/KawaiiZombie/inc" -I"C:/DEV/bada/Workspace/KawaiiZombie/inc/Tools" -O0 -g -Wall -c -funsigned-char -fshort-wchar -fpic -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
-	arm-samsung-nucleuseabi-g++ -D_DEBUG -DSHP -I"C:/DEV/bada/2.0.2/include" -I"C:/DEV/bada/Workspace/KawaiiZombie/inc" -I"C:/DEV/bada/Workspace/KawaiiZombie/inc/Tools" -O0 -g -Wall -E -funsigned-char -fshort-wchar -fpic -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -o"C:/DEV/bada/Workspace/repository/KawaiiZombie/Target-Debug/$(notdir $(basename $@).i)" "$<"
+	arm-samsung-nucleuseabi-g++ -D_DEBUG -DSHP -I"C:/bada/2.0.2/include" -I"C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc" -I"C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Tools" -O0 -g -Wall -c -funsigned-char -fshort-wchar -fpic -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"
+	arm-samsung-nucleuseabi-g++ -D_DEBUG -DSHP -I"C:/bada/2.0.2/include" -I"C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc" -I"C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Tools" -O0 -g -Wall -E -funsigned-char -fshort-wchar -fpic -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -o"C:/Users/Fradow/Desktop/Git/repository/KawaiiZombie/Target-Debug/$(notdir $(basename $@).i)" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

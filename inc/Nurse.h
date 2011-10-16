@@ -24,6 +24,7 @@ protected:
 	Point* movementOffset;
 	Point target;
 	int life;
+	int nextFire;
 };
 
 #endif /* NURSE_H_ */

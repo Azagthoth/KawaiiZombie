@@ -8,10 +8,18 @@
 #include "World.h"
 #include "FBase.h"
 
+#include "Constants.h"
+#include "Dart.h"
+#include "Zombie.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+
 using namespace Osp::Base::Collection;
 
 World::World() {
 	nurse = null;
+	nextZombieSpawn = ZOMBIE_SPAWN_TIME;
 	// TODO Auto-generated constructor stub
 
 }
@@ -24,12 +32,43 @@ result World::Construct()
 {
 	images = new ArrayList();
 	images->Construct();
+	imagesToAdd = new ArrayList();
+	imagesToAdd->Construct();
+	imagesToDelete = new ArrayList();
+	imagesToDelete->Construct();
 	viewPosition = new Point(1200, 720);
 	return E_SUCCESS;
 }
 void World::AddImage(KImage* image)
 {
-	images->Add((Object&)*image);
+	if(!imagesToAdd->Contains(*image))
+	{
+		imagesToAdd->Add(*image);
+	}
+}
+
+void World::DeleteImage(KImage* image)
+{
+	if(!imagesToDelete->Contains(*image))
+	{
+		imagesToDelete->Add(*image);
+	}
+}
+
+void World::DeleteImages(ArrayList* images)
+{
+	IEnumerator* pEnum = images->GetEnumeratorN();
+	KImage* img = null;
+	while (pEnum->MoveNext() == E_SUCCESS)
+	{
+		img = (KImage*)(pEnum->GetCurrent());
+		if(!imagesToDelete->Contains(*img))
+		{
+			imagesToDelete->Add(*img);
+		}
+	}
+
+	delete pEnum;
 }
 
 void World::SetNurse(Nurse* image)
@@ -53,15 +92,18 @@ void World::Draw(Canvas* target)
 	while (pEnum->MoveNext() == E_SUCCESS)
 	{
 		img = (KImage*)(pEnum->GetCurrent());
-		target->DrawBitmap(*(img->position), *(img->ressource));
+		if(img->name.Equals(DART, true))
+		{
+			Dart* dart = (Dart*)img;
+			target->DrawBitmap(*(img->position), *(img->ressource), Point(dart->ressource->GetWidth()/2, dart->ressource->GetHeight()/2), (int)dart->GetAngle());
+		}
+		else
+		{
+			target->DrawBitmap(*(img->position), *(img->ressource));
+		}
 	}
 
 	delete pEnum;
-	/*for(int i = 0; i < images->GetCount(); i++)
-	{
-		KImage* img = (KImage*)images->GetAt(i);
-		target->DrawBitmap(*(img->position), *(img->ressource));
-	}*/
 }
 void World::Update(int delta)
 {
@@ -74,11 +116,67 @@ void World::Update(int delta)
 	}
 
 	delete pEnum;
-	/*for(int i = 0; i < images->GetCount(); i++)
+
+	pEnum = images->GetEnumeratorN();
+	ArrayList* toDelete = new ArrayList();
+	toDelete->Construct();
+	while (pEnum->MoveNext() == E_SUCCESS)
 	{
-		KImage* img = (KImage*)images->GetAt(i);
+		img = (KImage*)pEnum->GetCurrent();
 		img->Update(delta);
-	}*/
+		if(img->name.Equals(DART, true))
+		{
+			if(img->position->x > 800 || img->position->x + img->ressource->GetWidth() < 0
+				|| img->position->y > 480 || img->position->y + img->ressource->GetHeight() < 0)
+			{
+				toDelete->Add((Object&)*img);
+			}
+		}
+	}
+	images->RemoveItems(*toDelete, true);
+	delete toDelete;
+	delete pEnum;
+
+	nextZombieSpawn -= delta;
+	if(nextZombieSpawn < 0)
+	{
+		Point* spawnPosition;
+		int border = rand()%4;
+		AppLog("Border (rand) : %d", border);
+		switch(border)
+		{
+		case 0:
+			spawnPosition = new Point(20, 20);
+			break;
+		case 1:
+			spawnPosition = new Point(800 - 20 - 128, 20);
+			break;
+		case 2:
+			spawnPosition = new Point(20, 480 - 20 - 128);
+			break;
+		case 3:
+			spawnPosition = new Point(800 - 20 - 128, 480 - 20 - 128);
+			break;
+		}
+		Image* bitmapDecoder = new Image();
+		bitmapDecoder->Construct();
+		WorldManager::Instance()->AddImage(new Zombie(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), spawnPosition, ZOMBIE));
+		delete bitmapDecoder;
+		nextZombieSpawn = ZOMBIE_SPAWN_TIME;
+	}
+
+	time += delta;
+	if(time > 200)
+	{
+		time = 0;
+		DeleteImage(GetImageByName(ZOMBIE_DEAD));
+	}
+	images->AddItems(*imagesToAdd);
+	imagesToAdd->RemoveAll(false);
+
+	images->RemoveItems(*imagesToDelete, false);
+	imagesToDelete->RemoveAll(true);
+	//TODO : check darts to delete out of bounds ones
 }
 KImage* World::GetImageByName(String name)
 {
@@ -107,7 +205,7 @@ ArrayList* World::GetImagesByNameN(String name)
 		img = (KImage*)pEnum->GetCurrent();
 		if(img->name.Equals(name, true))
 		{
-			results->Add((Object&)img);
+			results->Add(*img);
 		}
 	}
 

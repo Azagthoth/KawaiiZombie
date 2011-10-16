@@ -1,7 +1,12 @@
 #include "GameView.h"
 #include "World.h"
 #include "Constants.h"
+
 #include <math.h>
+
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "Zombie.h"
 #include <Sound.h>
 #include "GameTimer.h"
@@ -31,7 +36,7 @@ result
 GameView::OnInitializing(void)
 {
 	_bSound = true;
-	SoundMgr::Instance()->Play();
+	//SoundMgr::Instance()->Play();
 
 	result r = E_SUCCESS;
 	SetOrientation(ORIENTATION_LANDSCAPE);
@@ -60,6 +65,7 @@ GameView::OnInitializing(void)
 	pPlayer->SetVolume(50);
 	pPlayer->Play();*/
 
+	srand(time(NULL));
 	gameTimer = new GameTimer();
 	return r;
 }
@@ -118,14 +124,21 @@ void GameView::draw(int delta)
 
 void GameView::OnTouchPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo & touchInfo)
 {
-	AppLog("OnTouchPressed is reached \n");
-	Touch touch;
-	// Set the Start info list to the current touch info list
-	//pStartInfoList = touch.GetTouchInfoListN(source);
+	if(WorldManager::Instance()->GetImageByName(LOOSE) != null)
+	{
+		ArrayList* zombies = WorldManager::Instance()->GetImagesByNameN(ZOMBIE);
+		WorldManager::Instance()->DeleteImages(zombies);
+		delete zombies;
+		WorldManager::Instance()->DeleteImage(WorldManager::Instance()->GetImageByName(LOOSE));
+		WorldManager::Instance()->GetNurse()->position->SetPosition(400, 240);
+		WorldManager::Instance()->GetNurse()->ResetLife();
+	}
+	OnTouchMoved(source, currentPosition, touchInfo);
 }
 
 void GameView::OnTouchLongPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {
+
 }
 void GameView::OnTouchReleased(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {
