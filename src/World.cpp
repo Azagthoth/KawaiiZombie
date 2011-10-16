@@ -8,6 +8,8 @@
 #include "World.h"
 #include "FBase.h"
 
+#include "Constants.h"
+
 using namespace Osp::Base::Collection;
 
 World::World() {
@@ -29,7 +31,7 @@ result World::Construct()
 }
 void World::AddImage(KImage* image)
 {
-	images->Add((Object&)*image);
+	images->Add(*image);
 }
 
 void World::DeleteImage(KImage* image)
@@ -62,11 +64,6 @@ void World::Draw(Canvas* target)
 	}
 
 	delete pEnum;
-	/*for(int i = 0; i < images->GetCount(); i++)
-	{
-		KImage* img = (KImage*)images->GetAt(i);
-		target->DrawBitmap(*(img->position), *(img->ressource));
-	}*/
 }
 void World::Update(int delta)
 {
@@ -79,11 +76,27 @@ void World::Update(int delta)
 	}
 
 	delete pEnum;
-	/*for(int i = 0; i < images->GetCount(); i++)
+
+	pEnum = images->GetEnumeratorN();
+	ArrayList* toDelete = new ArrayList();
+	toDelete->Construct();
+	while (pEnum->MoveNext() == E_SUCCESS)
 	{
-		KImage* img = (KImage*)images->GetAt(i);
+		img = (KImage*)pEnum->GetCurrent();
 		img->Update(delta);
-	}*/
+		if(img->name.Equals(DART, true))
+		{
+			if(img->position->x > 800 || img->position->x + img->ressource->GetWidth() < 0
+				|| img->position->y > 480 || img->position->y + img->ressource->GetHeight() < 0)
+			{
+				toDelete->Add((Object&)*img);
+			}
+		}
+	}
+	images->RemoveItems(*toDelete, true);
+	delete toDelete;
+	delete pEnum;
+	//TODO : check darts to delete out of bounds ones
 }
 KImage* World::GetImageByName(String name)
 {
@@ -112,7 +125,7 @@ ArrayList* World::GetImagesByNameN(String name)
 		img = (KImage*)pEnum->GetCurrent();
 		if(img->name.Equals(name, true))
 		{
-			results->Add((Object&)img);
+			results->Add(*img);
 		}
 	}
 

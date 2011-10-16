@@ -15,7 +15,7 @@ using namespace Osp::Graphics;
 using namespace Osp::Media;
 using namespace Osp::Base;
 
-class KImage {
+class KImage : public Object {
 public:
 	KImage(Bitmap* image, Point* pos, String string);
 	virtual ~KImage();
