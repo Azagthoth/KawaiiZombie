@@ -118,10 +118,7 @@ void GameView::draw(int delta)
 
 void GameView::OnTouchPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo & touchInfo)
 {
-	AppLog("OnTouchPressed is reached \n");
-	Touch touch;
-	// Set the Start info list to the current touch info list
-	//pStartInfoList = touch.GetTouchInfoListN(source);
+	OnTouchMoved(source, currentPosition, touchInfo);
 }
 
 void GameView::OnTouchLongPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
