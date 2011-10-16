@@ -7,11 +7,18 @@
 
 #include "KImage.h"
 
-KImage::KImage() {
-	// TODO Auto-generated constructor stub
-
+KImage::KImage(Bitmap* image, Point* pos, String string)
+{
+	ressource = image;
+	position = pos;
+	name = string;
 }
 
 KImage::~KImage() {
 	// TODO Auto-generated destructor stub
+}
+
+void KImage::Update(int delta)
+{
+
 }

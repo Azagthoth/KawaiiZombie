@@ -4,56 +4,17 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/BaseController.cpp \
-../src/Dart.cpp \
-../src/FormCredits.cpp \
-../src/FormHelp.cpp \
-../src/FormHome.cpp \
-../src/FormScore.cpp \
-../src/GameTimer.cpp \
-../src/GameView.cpp \
-../src/KImage.cpp \
-../src/KawaiiZombie.cpp \
-../src/KawaiiZombieEntry.cpp \
-../src/Nurse.cpp \
-../src/World.cpp \
-../src/Zombie.cpp 
+../src/Tools/Sound.cpp 
 
 OBJS += \
-./src/BaseController.o \
-./src/Dart.o \
-./src/FormCredits.o \
-./src/FormHelp.o \
-./src/FormHome.o \
-./src/FormScore.o \
-./src/GameTimer.o \
-./src/GameView.o \
-./src/KImage.o \
-./src/KawaiiZombie.o \
-./src/KawaiiZombieEntry.o \
-./src/Nurse.o \
-./src/World.o \
-./src/Zombie.o 
+./src/Tools/Sound.o 
 
 CPP_DEPS += \
-./src/BaseController.d \
-./src/Dart.d \
-./src/FormCredits.d \
-./src/FormHelp.d \
-./src/FormHome.d \
-./src/FormScore.d \
-./src/GameTimer.d \
-./src/GameView.d \
-./src/KImage.d \
-./src/KawaiiZombie.d \
-./src/KawaiiZombieEntry.d \
-./src/Nurse.d \
-./src/World.d \
-./src/Zombie.d 
+./src/Tools/Sound.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-src/%.o: ../src/%.cpp
+src/Tools/%.o: ../src/Tools/%.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: bada C++ Compiler'
 	arm-samsung-nucleuseabi-g++ -D_DEBUG -DSHP -I"C:/DEV/bada/2.0.2/include" -I"C:/DEV/bada/Workspace/KawaiiZombie/inc" -I"C:/DEV/bada/Workspace/KawaiiZombie/inc/Tools" -O0 -g -Wall -c -funsigned-char -fshort-wchar -fpic -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -o"$@" "$<"

@@ -45,7 +45,7 @@ class Sound {
 	 CPlaySound(Sound::SoundId sound=Sound1);
     ~CPlaySound(void);
 
-    void* Run(void);
+    //void* Run(void);
 
     protected:
     Sound::SoundId _soundId;

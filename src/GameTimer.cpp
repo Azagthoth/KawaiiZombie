@@ -28,13 +28,13 @@ GameTimer::~GameTimer()
 }
 
 //------------------------------------------------------------------------
-bool GameTimer::construct(Form1* gameRuntime)
+bool GameTimer::construct(GameView* gameRuntime)
 {
     return construct(gameRuntime, TIMER_DEFAULT_TICK_MILLIS, false);
 }
 
 //------------------------------------------------------------------------
-bool GameTimer::construct(Form1* gameRuntime, int timerTickDelay, bool repeatTicks)
+bool GameTimer::construct(GameView* gameRuntime, int timerTickDelay, bool repeatTicks)
 {
     AppLog("Constructing timer: delay %i, repeat %s", timerTickDelay, repeatTicks ? "true" : "false");
 

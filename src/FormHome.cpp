@@ -1,7 +1,7 @@
 
 #include "FormHome.h"
 #include "Constants.h"
-#include "Form1.h"
+#include "GameView.h"
 #include "FormScore.h"
 #include "FormHelp.h"
 #include "FormCredits.h"
@@ -82,7 +82,7 @@ FormHome::OnActionPerformed(const Control& source, int actionId)
 	switch (actionId)
 	{
 	case ActionPlay:{
-		Form1* pGameForm = new Form1;
+		GameView* pGameForm = new GameView;
 		if (!pGameForm) break;
 		if (!pGameForm->Initialize())
 			break;

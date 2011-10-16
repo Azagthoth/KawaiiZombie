@@ -1,1 +1,1 @@
--L"C:/bada/2.0.2/Model/WaveWVGA/Target" -L"C:/Users/Fradow/Desktop/Git/KawaiiZombie/lib" -shared -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -o"KawaiiZombie.exe"
+-L"C:/DEV/bada/2.0.2/Model/WaveWVGA/Target" -L"C:/DEV/bada/Workspace/KawaiiZombie/lib" -shared -march=armv7-a -mthumb -mthumb-interwork -mfpu=vfpv3 -mfloat-abi=hard -o"KawaiiZombie.exe"

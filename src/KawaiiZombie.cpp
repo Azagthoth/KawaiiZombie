@@ -7,7 +7,6 @@
 
 
 #include "KawaiiZombie.h"
-#include "Form1.h"
 #include "FormHome.h"
 
 using namespace Osp::App;

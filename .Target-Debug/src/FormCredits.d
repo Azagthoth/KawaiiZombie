@@ -1,5 +1,5 @@
-src/GameView.d src/GameView.o: ../src/GameView.cpp \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/GameView.h \
+src/FormCredits.d src/FormCredits.o: ../src/FormCredits.cpp \
+ C:/DEV/bada/Workspace/KawaiiZombie/inc/FormCredits.h \
  C:/DEV/bada/2.0.2/include/FBase.h C:/DEV/bada/2.0.2/include/FBaseTypes.h \
  C:/DEV/bada/2.0.2/include/FBaseSys.h \
  C:/DEV/bada/2.0.2/include/FBaseConfig.h \
@@ -273,89 +273,6 @@ src/GameView.d src/GameView.o: ../src/GameView.cpp \
  C:/DEV/bada/2.0.2/include/FUiRelativeLayout.h \
  C:/DEV/bada/2.0.2/include/FUiGridLayout.h \
  C:/DEV/bada/2.0.2/include/FUiCustomControlBase.h \
- C:/DEV/bada/2.0.2/include/FGrpCanvas.h \
- C:/DEV/bada/2.0.2/include/FMedia.h \
- C:/DEV/bada/2.0.2/include/FMediaImage.h \
- C:/DEV/bada/2.0.2/include/FGraphics.h \
- C:/DEV/bada/2.0.2/include/FMediaConfig.h \
- C:/DEV/bada/2.0.2/include/FMediaImageCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaIImageEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaPlayer.h \
- C:/DEV/bada/2.0.2/include/FMediaPlayerCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaIPlayerEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaIPlayerVideoEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaMediaStreamInfo.h \
- C:/DEV/bada/2.0.2/include/FMediaAudioStreamInfo.h \
- C:/DEV/bada/2.0.2/include/FMediaAudioCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaTypes.h \
- C:/DEV/bada/2.0.2/include/FMediaVideoStreamInfo.h \
- C:/DEV/bada/2.0.2/include/FMediaCamera.h \
- C:/DEV/bada/2.0.2/include/FMediaCameraCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaICameraEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaAudioRecorder.h \
- C:/DEV/bada/2.0.2/include/FMediaAudioRecorderCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaRecorderCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaIAudioRecorderEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaVideoRecorder.h \
- C:/DEV/bada/2.0.2/include/FMediaVideoRecorderCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaIVideoRecorderEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaDrmInfo.h \
- C:/DEV/bada/2.0.2/include/FMediaDrmConstants.h \
- C:/DEV/bada/2.0.2/include/FMediaDrmConstraintInfo.h \
- C:/DEV/bada/2.0.2/include/FMediaAudioIn.h \
- C:/DEV/bada/2.0.2/include/FMediaIAudioInEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaAudioOut.h \
- C:/DEV/bada/2.0.2/include/FMediaIAudioOutEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaCapability.h \
- C:/DEV/bada/2.0.2/include/FMediaCapabilityCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaProgressivePlayer.h \
- C:/DEV/bada/2.0.2/include/FMediaProgressivePlayerCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaIProgressiveDownloadEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaAudioDecoder.h \
- C:/DEV/bada/2.0.2/include/FMediaAudioEncoder.h \
- C:/DEV/bada/2.0.2/include/FMediaVideoDecoder.h \
- C:/DEV/bada/2.0.2/include/FMediaVideoEncoder.h \
- C:/DEV/bada/2.0.2/include/FMediaImageUtil.h \
- C:/DEV/bada/2.0.2/include/FMediaImageUtilTypes.h \
- C:/DEV/bada/2.0.2/include/FMediaDrmService.h \
- C:/DEV/bada/2.0.2/include/FMediaIDrmServiceEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaTonePlayer.h \
- C:/DEV/bada/2.0.2/include/FMediaAudioOut.h \
- C:/DEV/bada/2.0.2/include/FMediaTone.h \
- C:/DEV/bada/2.0.2/include/FMediaToneCommon.h \
- C:/DEV/bada/2.0.2/include/FMediaITonePlayerEventListener.h \
- C:/DEV/bada/2.0.2/include/FMediaGifDecoder.h \
- C:/DEV/bada/2.0.2/include/FIo.h C:/DEV/bada/2.0.2/include/FIoDirectory.h \
- C:/DEV/bada/2.0.2/include/FBaseTypes.h \
- C:/DEV/bada/2.0.2/include/FBaseDateTime.h \
- C:/DEV/bada/2.0.2/include/FBaseString.h \
- C:/DEV/bada/2.0.2/include/FBaseResource.h \
- C:/DEV/bada/2.0.2/include/FBaseColArrayList.h \
- C:/DEV/bada/2.0.2/include/FIoConfig.h \
- C:/DEV/bada/2.0.2/include/FIoFile.h \
- C:/DEV/bada/2.0.2/include/FBaseColIList.h \
- C:/DEV/bada/2.0.2/include/FBaseResult.h \
- C:/DEV/bada/2.0.2/include/FBaseByteBuffer.h \
- C:/DEV/bada/2.0.2/include/FIoRegistry.h \
- C:/DEV/bada/2.0.2/include/FBaseUuId.h \
- C:/DEV/bada/2.0.2/include/FIoDbTypes.h \
- C:/DEV/bada/2.0.2/include/FIoDatabase.h \
- C:/DEV/bada/2.0.2/include/FBaseRtThreadMutex.h \
- C:/DEV/bada/2.0.2/include/FIoDbStatement.h \
- C:/DEV/bada/2.0.2/include/FIoDbTypes.h \
- C:/DEV/bada/2.0.2/include/FIoDbEnumerator.h \
- C:/DEV/bada/2.0.2/include/FIoSerialPort.h \
- C:/DEV/bada/2.0.2/include/FIoISerialPortEventListener.h \
- C:/DEV/bada/2.0.2/include/FIoChannel.h \
- C:/DEV/bada/2.0.2/include/FIoConfig.h \
- C:/DEV/bada/2.0.2/include/FIoChannelTypes.h \
- C:/DEV/bada/2.0.2/include/FIoChannelManager.h \
- C:/DEV/bada/2.0.2/include/FIoIChannelEventListener.h \
- C:/DEV/bada/2.0.2/include/FAppTypes.h \
- C:/DEV/bada/2.0.2/include/FIoClientChannel.h \
- C:/DEV/bada/2.0.2/include/FIoIChannelResponseEventListener.h \
- C:/DEV/bada/2.0.2/include/FIoServerChannel.h \
- C:/DEV/bada/2.0.2/include/FIoIChannelRequestEventListener.h \
  C:/DEV/bada/Workspace/KawaiiZombie/inc/BaseController.h \
  C:/DEV/bada/2.0.2/include/FNet.h \
  C:/DEV/bada/2.0.2/include/FNetNetConnectionManager.h \
@@ -457,19 +374,9 @@ src/GameView.d src/GameView.o: ../src/GameView.cpp \
  C:/DEV/bada/2.0.2/include/FNetNfcINdefMessageDiscoveryEventListener.h \
  C:/DEV/bada/2.0.2/include/FNetNfcINfcManagerEventListener.h \
  C:/DEV/bada/2.0.2/include/FNetNfcITagConnectionListener.h \
- C:/DEV/bada/2.0.2/include/FNetNfcINdefTagConnectionListener.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/World.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/KImage.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/Singleton.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/Nurse.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/Constants.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/Zombie.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/Tools/Sound.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/Singleton.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/GameTimer.h \
- C:/DEV/bada/Workspace/KawaiiZombie/inc/GameView.h
+ C:/DEV/bada/2.0.2/include/FNetNfcINdefTagConnectionListener.h
 
-C:/DEV/bada/Workspace/KawaiiZombie/inc/GameView.h:
+C:/DEV/bada/Workspace/KawaiiZombie/inc/FormCredits.h:
 
 C:/DEV/bada/2.0.2/include/FBase.h:
 
@@ -1021,174 +928,6 @@ C:/DEV/bada/2.0.2/include/FUiGridLayout.h:
 
 C:/DEV/bada/2.0.2/include/FUiCustomControlBase.h:
 
-C:/DEV/bada/2.0.2/include/FGrpCanvas.h:
-
-C:/DEV/bada/2.0.2/include/FMedia.h:
-
-C:/DEV/bada/2.0.2/include/FMediaImage.h:
-
-C:/DEV/bada/2.0.2/include/FGraphics.h:
-
-C:/DEV/bada/2.0.2/include/FMediaConfig.h:
-
-C:/DEV/bada/2.0.2/include/FMediaImageCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaIImageEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaPlayer.h:
-
-C:/DEV/bada/2.0.2/include/FMediaPlayerCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaIPlayerEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaIPlayerVideoEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaMediaStreamInfo.h:
-
-C:/DEV/bada/2.0.2/include/FMediaAudioStreamInfo.h:
-
-C:/DEV/bada/2.0.2/include/FMediaAudioCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaTypes.h:
-
-C:/DEV/bada/2.0.2/include/FMediaVideoStreamInfo.h:
-
-C:/DEV/bada/2.0.2/include/FMediaCamera.h:
-
-C:/DEV/bada/2.0.2/include/FMediaCameraCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaICameraEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaAudioRecorder.h:
-
-C:/DEV/bada/2.0.2/include/FMediaAudioRecorderCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaRecorderCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaIAudioRecorderEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaVideoRecorder.h:
-
-C:/DEV/bada/2.0.2/include/FMediaVideoRecorderCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaIVideoRecorderEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaDrmInfo.h:
-
-C:/DEV/bada/2.0.2/include/FMediaDrmConstants.h:
-
-C:/DEV/bada/2.0.2/include/FMediaDrmConstraintInfo.h:
-
-C:/DEV/bada/2.0.2/include/FMediaAudioIn.h:
-
-C:/DEV/bada/2.0.2/include/FMediaIAudioInEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaAudioOut.h:
-
-C:/DEV/bada/2.0.2/include/FMediaIAudioOutEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaCapability.h:
-
-C:/DEV/bada/2.0.2/include/FMediaCapabilityCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaProgressivePlayer.h:
-
-C:/DEV/bada/2.0.2/include/FMediaProgressivePlayerCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaIProgressiveDownloadEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaAudioDecoder.h:
-
-C:/DEV/bada/2.0.2/include/FMediaAudioEncoder.h:
-
-C:/DEV/bada/2.0.2/include/FMediaVideoDecoder.h:
-
-C:/DEV/bada/2.0.2/include/FMediaVideoEncoder.h:
-
-C:/DEV/bada/2.0.2/include/FMediaImageUtil.h:
-
-C:/DEV/bada/2.0.2/include/FMediaImageUtilTypes.h:
-
-C:/DEV/bada/2.0.2/include/FMediaDrmService.h:
-
-C:/DEV/bada/2.0.2/include/FMediaIDrmServiceEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaTonePlayer.h:
-
-C:/DEV/bada/2.0.2/include/FMediaAudioOut.h:
-
-C:/DEV/bada/2.0.2/include/FMediaTone.h:
-
-C:/DEV/bada/2.0.2/include/FMediaToneCommon.h:
-
-C:/DEV/bada/2.0.2/include/FMediaITonePlayerEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FMediaGifDecoder.h:
-
-C:/DEV/bada/2.0.2/include/FIo.h:
-
-C:/DEV/bada/2.0.2/include/FIoDirectory.h:
-
-C:/DEV/bada/2.0.2/include/FBaseTypes.h:
-
-C:/DEV/bada/2.0.2/include/FBaseDateTime.h:
-
-C:/DEV/bada/2.0.2/include/FBaseString.h:
-
-C:/DEV/bada/2.0.2/include/FBaseResource.h:
-
-C:/DEV/bada/2.0.2/include/FBaseColArrayList.h:
-
-C:/DEV/bada/2.0.2/include/FIoConfig.h:
-
-C:/DEV/bada/2.0.2/include/FIoFile.h:
-
-C:/DEV/bada/2.0.2/include/FBaseColIList.h:
-
-C:/DEV/bada/2.0.2/include/FBaseResult.h:
-
-C:/DEV/bada/2.0.2/include/FBaseByteBuffer.h:
-
-C:/DEV/bada/2.0.2/include/FIoRegistry.h:
-
-C:/DEV/bada/2.0.2/include/FBaseUuId.h:
-
-C:/DEV/bada/2.0.2/include/FIoDbTypes.h:
-
-C:/DEV/bada/2.0.2/include/FIoDatabase.h:
-
-C:/DEV/bada/2.0.2/include/FBaseRtThreadMutex.h:
-
-C:/DEV/bada/2.0.2/include/FIoDbStatement.h:
-
-C:/DEV/bada/2.0.2/include/FIoDbTypes.h:
-
-C:/DEV/bada/2.0.2/include/FIoDbEnumerator.h:
-
-C:/DEV/bada/2.0.2/include/FIoSerialPort.h:
-
-C:/DEV/bada/2.0.2/include/FIoISerialPortEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FIoChannel.h:
-
-C:/DEV/bada/2.0.2/include/FIoConfig.h:
-
-C:/DEV/bada/2.0.2/include/FIoChannelTypes.h:
-
-C:/DEV/bada/2.0.2/include/FIoChannelManager.h:
-
-C:/DEV/bada/2.0.2/include/FIoIChannelEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FAppTypes.h:
-
-C:/DEV/bada/2.0.2/include/FIoClientChannel.h:
-
-C:/DEV/bada/2.0.2/include/FIoIChannelResponseEventListener.h:
-
-C:/DEV/bada/2.0.2/include/FIoServerChannel.h:
-
-C:/DEV/bada/2.0.2/include/FIoIChannelRequestEventListener.h:
-
 C:/DEV/bada/Workspace/KawaiiZombie/inc/BaseController.h:
 
 C:/DEV/bada/2.0.2/include/FNet.h:
@@ -1392,23 +1131,3 @@ C:/DEV/bada/2.0.2/include/FNetNfcINfcManagerEventListener.h:
 C:/DEV/bada/2.0.2/include/FNetNfcITagConnectionListener.h:
 
 C:/DEV/bada/2.0.2/include/FNetNfcINdefTagConnectionListener.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/World.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/KImage.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/Singleton.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/Nurse.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/Constants.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/Zombie.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/Tools/Sound.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/Singleton.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/GameTimer.h:
-
-C:/DEV/bada/Workspace/KawaiiZombie/inc/GameView.h:

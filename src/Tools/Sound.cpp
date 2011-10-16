@@ -156,7 +156,7 @@ Sound::CPlaySound::~CPlaySound(void) {
 	// Destructor
 	}
 
-void*	Sound::CPlaySound::Run(void) {
-
-}
+//void*	Sound::CPlaySound::Run(void) {
+//
+//}
 

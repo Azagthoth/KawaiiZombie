@@ -8,11 +8,11 @@
 #ifndef GAMETIMER_H_
 #define GAMETIMER_H_
 
-#include "Form1.h"
+#include "GameView.h"
 using namespace Osp::Base::Runtime;
 
 //code from http://ask.badadev.com/questions/4188/proper-main-loop
-class Form1; //forward declaration
+class GameView; //forward declaration
 
 class GameTimer
 : public ITimerEventListener
@@ -20,14 +20,14 @@ class GameTimer
 public:
 	GameTimer();
 	virtual ~GameTimer();
-	bool construct(Form1* gameRuntime);
-	bool construct(Form1* gameRuntime, int timerTickDelay, bool repeatTicks);
+	bool construct(GameView* gameRuntime);
+	bool construct(GameView* gameRuntime, int timerTickDelay, bool repeatTicks);
 	void start(int millis);
 	void stop();
 	void OnTimerExpired(Osp::Base::Runtime::Timer& timer);
 protected:
 	Timer* gameTimer;
-	Form1* game;
+	GameView* game;
 	bool repeat;
 	int delay;
 	long long tickEnd;
