@@ -118,11 +118,12 @@ void GameView::draw(int delta)
 
 void GameView::OnTouchPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo & touchInfo)
 {
-	OnTouchMoved(source, currentPosition, touchInfo);
+		OnTouchMoved(source, currentPosition, touchInfo);
 }
 
 void GameView::OnTouchLongPressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {
+
 }
 void GameView::OnTouchReleased(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {

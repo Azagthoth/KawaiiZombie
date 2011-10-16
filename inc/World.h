@@ -21,6 +21,7 @@ public:
 	virtual ~World();
 	result Construct();
 	void AddImage(KImage* image);
+	void DeleteImage(KImage* image);
 	void SetNurse(Nurse* image);
 	Nurse* GetNurse();
 	void MoveView(Point* offset);

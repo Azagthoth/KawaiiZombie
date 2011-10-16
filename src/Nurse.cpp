@@ -18,6 +18,12 @@ Nurse::Nurse(Bitmap* image, Point* pos, String string) : KImage(image, pos, stri
 	nextFire = DART_REFIRE_TIME;
 	// TODO Auto-generated constructor stub
 
+	Image* bitmapDecoder = new Image();
+	bitmapDecoder->Construct();
+
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Res/480x800/jauge_3.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(800-48, 48), LIFE));
+	delete bitmapDecoder;
+
 }
 
 Nurse::~Nurse() {
@@ -71,12 +77,26 @@ void Nurse::SetTarget(Point point)
 void Nurse::GetHit()
 {
 	life--;
-	if(life == 0)
+
+	if(life >= 0)
 	{
+
+		WorldManager::Instance()->DeleteImage(WorldManager::Instance()->GetImageByName(LIFE));
+
+		String url;
+
+		url.Format(256,L"/Res/480x800/jauge_%d.png",life);
+
 		Image* bitmapDecoder = new Image();
 		bitmapDecoder->Construct();
-		WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/lose.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(400-128, 240-128), String("Loose")));
+
+		WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(url, BITMAP_PIXEL_FORMAT_ARGB8888), new Point(800-48, 48), LIFE));
+		if(life == 0)
+		{
+			WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/lose.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(400-128, 240- 128), LIFE));
+		}
 		delete bitmapDecoder;
+
 	}
 }
 void Nurse::ResetLife()
