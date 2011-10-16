@@ -1,5 +1,6 @@
 #include "Form1.h"
-
+#include "GameTimer.h"
+#include "Sound.h"
 using namespace Osp::Base;
 using namespace Osp::Ui;
 using namespace Osp::Ui::Controls;
@@ -25,6 +26,9 @@ result
 Form1::OnInitializing(void)
 {
 	result r = E_SUCCESS;
+
+	_bSound = true;
+	SoundMgr::Instance()->Play();
 
 	// TODO: Add your initialization code here
 	AddTouchEventListener(*this);
@@ -128,6 +132,28 @@ void Form1::OnTouchFocusIn(const Osp::Ui::Control& source,const Osp::Graphics::P
 void Form1::OnTouchFocusOut(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {
 }
+
+void
+Form1::OnActionPerformed(const Control& source, int actionId)
+{
+	// Interactions for video launching buttons
+	switch (actionId)
+	{
+	case ActionSound:{
+		_bSound = !_bSound;
+		if(_bSound)
+			SoundMgr::Instance()->GetPlayer()->Play();
+		else SoundMgr::Instance()->GetPlayer()->Pause();
+	}
+	break;
+
+
+	default:
+		BaseController::OnActionPerformed(source, actionId);
+		break;
+	}
+}
+
 
 
 

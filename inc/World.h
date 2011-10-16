@@ -9,6 +9,7 @@
 #define WORLD_H_
 
 #include "KImage.h"
+#include "Singleton.h"
 
 using namespace Osp::Base::Collection;
 

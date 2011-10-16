@@ -6,17 +6,20 @@
 #include <FGrpCanvas.h>
 #include <FMedia.h>
 #include <FGraphics.h>
-#include "GameTimer.h"
+#include "BaseController.h"
+
 using namespace Osp::Graphics;
 using namespace Osp::Media;
 
 class GameTimer; //forward declaration
 
 class Form1 :
-	public Osp::Ui::Controls::Form,
+	public BaseController,
 	public Osp::Ui::ITouchEventListener
 {
-
+enum{
+	ActionSound
+};
 // Construction
 public:
 	Form1(void);
@@ -32,7 +35,7 @@ protected:
 	Image* bitmapDecoder;
 	GameTimer* gameTimer;
 	Point* nursePosition;
-
+	bool _bSound;
 public:
 	virtual result OnInitializing(void);
 	virtual result OnTerminating(void);
@@ -50,6 +53,9 @@ public:
 	virtual void OnTouchFocusIn (const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
 	virtual void OnTouchFocusOut (const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
 	virtual void OnTouchLongPressed (const Osp::Ui::Control &source, const Osp::Graphics::Point &currentPosition, const Osp::Ui::TouchEventInfo &touchInfo);
+
+	virtual void OnActionPerformed(const Control& source, int actionId);
+
 };
 
 #endif	//_FORM1_H_
