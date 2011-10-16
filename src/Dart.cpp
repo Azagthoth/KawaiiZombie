@@ -7,6 +7,7 @@
 
 #include "Dart.h"
 #include "World.h"
+#include "Zombie.h"
 #include "Constants.h"
 #include "KImage.h"
 #include "math.h"
@@ -45,6 +46,29 @@ void Dart::Update(int delta)
 	float distance = sqrt(pow(movementOffset.x, 2) + pow(movementOffset.y, 2));
 	position->SetPosition(Point(position->x + movementOffset.x / distance * delta * DART_SPEED,
 								position->y + movementOffset.y / distance * delta * DART_SPEED));
+	ArrayList* zombies = WorldManager::Instance()->GetImagesByNameN(ZOMBIE);
+	IEnumerator* pEnum = zombies->GetEnumeratorN();
+	Zombie* zombie = null;
+	bool found = false;
+	while (pEnum->MoveNext() == E_SUCCESS && !found)
+	{
+		zombie = (Zombie*)pEnum->GetCurrent();
+		Point offset = Point(position->x + ressource->GetWidth()/2 - zombie->position->x - zombie->ressource->GetWidth()/2, position->y + ressource->GetHeight()/2 - zombie->position->y - zombie->ressource->GetHeight()/2);
+		float distance = sqrt(pow(offset.x, 2) + pow(offset.y, 2));
+		if(distance < 50)
+		{
+			Image* bitmapDecoder = new Image();
+			bitmapDecoder->Construct();
+			WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_dead.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(*(zombie->position)), ZOMBIE_DEAD));
+			WorldManager::Instance()->DeleteImage(zombie);
+			WorldManager::Instance()->DeleteImage(this);
+			delete bitmapDecoder;
+			found = true;
+		}
+	}
+
+	delete pEnum;
+	delete zombies;
 
 }
 

@@ -7,6 +7,7 @@
 
 #define NURSE String("Nurse")
 #define ZOMBIE String("Zombie")
+#define ZOMBIE_DEAD String("ZombieDead")
 #define DART String("Dart")
 #define LIFE String("Life")
 
@@ -17,9 +18,10 @@
 #define ZOMBIE_SPEED 1
 
 #define NURSE_MAX_LIFE 3
-
-#define DART_SPEED 2
+#define DART_SPEED 4
 #define DART_REFIRE_TIME 100 //in milliseconds
+
+#define ZOMBIE_SPAWN_TIME 1000
 
 
 //################################################################

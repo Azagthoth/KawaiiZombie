@@ -10,11 +10,16 @@
 
 #include "Constants.h"
 #include "Dart.h"
+#include "Zombie.h"
+
+#include <stdio.h>
+#include <stdlib.h>
 
 using namespace Osp::Base::Collection;
 
 World::World() {
 	nurse = null;
+	nextZombieSpawn = ZOMBIE_SPAWN_TIME;
 	// TODO Auto-generated constructor stub
 
 }
@@ -29,18 +34,25 @@ result World::Construct()
 	images->Construct();
 	imagesToAdd = new ArrayList();
 	imagesToAdd->Construct();
+	imagesToDelete = new ArrayList();
+	imagesToDelete->Construct();
 	viewPosition = new Point(1200, 720);
 	return E_SUCCESS;
 }
 void World::AddImage(KImage* image)
 {
-	//TODO : add images on next update
-	imagesToAdd->Add(*image);
+	if(!imagesToAdd->Contains(*image))
+	{
+		imagesToAdd->Add(*image);
+	}
 }
 
 void World::DeleteImage(KImage* image)
 {
-	images->Remove((Object&)*image,true);
+	if(!imagesToDelete->Contains(*image))
+	{
+		imagesToDelete->Add(*image);
+	}
 }
 
 void World::SetNurse(Nurse* image)
@@ -109,8 +121,45 @@ void World::Update(int delta)
 	delete toDelete;
 	delete pEnum;
 
+	nextZombieSpawn -= delta;
+	if(nextZombieSpawn < 0)
+	{
+		Point* spawnPosition;
+		int border = rand()%4;
+		AppLog("Border (rand) : %d", border);
+		switch(border)
+		{
+		case 0:
+			spawnPosition = new Point(20, 20);
+			break;
+		case 1:
+			spawnPosition = new Point(800 - 20 - 128, 20);
+			break;
+		case 2:
+			spawnPosition = new Point(20, 480 - 20 - 128);
+			break;
+		case 3:
+			spawnPosition = new Point(800 - 20 - 128, 480 - 20 - 128);
+			break;
+		}
+		Image* bitmapDecoder = new Image();
+		bitmapDecoder->Construct();
+		WorldManager::Instance()->AddImage(new Zombie(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), spawnPosition, ZOMBIE));
+		delete bitmapDecoder;
+		nextZombieSpawn = ZOMBIE_SPAWN_TIME;
+	}
+
+	time += delta;
+	if(time > 200)
+	{
+		time = 0;
+		DeleteImage(GetImageByName(ZOMBIE_DEAD));
+	}
 	images->AddItems(*imagesToAdd);
 	imagesToAdd->RemoveAll(false);
+
+	images->RemoveItems(*imagesToDelete, false);
+	imagesToDelete->RemoveAll(true);
 	//TODO : check darts to delete out of bounds ones
 }
 KImage* World::GetImageByName(String name)

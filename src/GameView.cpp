@@ -2,6 +2,9 @@
 #include "World.h"
 #include "Constants.h"
 #include "math.h"
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include "Zombie.h"
 #include "Sound.h"
 #include "GameTimer.h"
@@ -60,6 +63,7 @@ GameView::OnInitializing(void)
 	pPlayer->SetVolume(50);
 	pPlayer->Play();*/
 
+	srand(time(NULL));
 	gameTimer = new GameTimer();
 	return r;
 }

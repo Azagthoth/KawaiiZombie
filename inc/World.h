@@ -33,7 +33,11 @@ protected:
 	Point* viewPosition;
 	ArrayList* images;
 	ArrayList* imagesToAdd;
+	ArrayList* imagesToDelete;
 	Nurse* nurse;
+
+	int nextZombieSpawn;
+	int time;
 };
 
 

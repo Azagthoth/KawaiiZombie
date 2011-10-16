@@ -21,7 +21,7 @@ Nurse::Nurse(Bitmap* image, Point* pos, String string) : KImage(image, pos, stri
 	Image* bitmapDecoder = new Image();
 	bitmapDecoder->Construct();
 
-	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Res/480x800/jauge_3.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(800-48, 48), LIFE));
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Res/480x800/jauge_3.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(48, 48), LIFE));
 	delete bitmapDecoder;
 
 }
@@ -47,7 +47,7 @@ void Nurse::Update(int delta)
 		{
 			Image* bitmapDecoder = new Image();
 			bitmapDecoder->Construct();
-			AppLog("Creating dart");
+			//AppLog("Creating dart");
 			WorldManager::Instance()->AddImage(new Dart(bitmapDecoder->DecodeN(L"/Home/Res/seringue_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(position->x + ressource->GetWidth()/2 - 96/2, position->y + ressource->GetHeight()/2 - 48/2), DART, Point(movementOffset->x, movementOffset->y)));
 			nextFire = DART_REFIRE_TIME;
 			delete bitmapDecoder;
@@ -90,7 +90,7 @@ void Nurse::GetHit()
 		Image* bitmapDecoder = new Image();
 		bitmapDecoder->Construct();
 
-		WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(url, BITMAP_PIXEL_FORMAT_ARGB8888), new Point(800-48, 48), LIFE));
+		WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(url, BITMAP_PIXEL_FORMAT_ARGB8888), new Point(48, 48), LIFE));
 		if(life == 0)
 		{
 			WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/lose.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(400-128, 240- 128), LIFE));

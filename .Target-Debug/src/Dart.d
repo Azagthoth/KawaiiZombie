@@ -181,6 +181,7 @@ src/Dart.d src/Dart.o: ../src/Dart.cpp \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/KImage.h \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Singleton.h \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Nurse.h \
+ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Zombie.h \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Constants.h \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/KImage.h
 
@@ -593,6 +594,8 @@ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/KImage.h:
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Singleton.h:
 
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Nurse.h:
+
+C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Zombie.h:
 
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Constants.h:
 
