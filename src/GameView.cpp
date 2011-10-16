@@ -169,9 +169,8 @@ GameView::OnActionPerformed(const Control& source, int actionId)
 	{
 	case ActionSound:{
 		_bSound = !_bSound;
-		if(_bSound)
-			SoundMgr::Instance()->GetPlayer()->Play();
-		else SoundMgr::Instance()->GetPlayer()->Pause();
+		SoundMgr::Instance()->SetSoundMode(_bSound);
+
 	}
 	break;
 

@@ -65,6 +65,8 @@ FormHome::OnInitializing(void)
 //	_pSoundThread = new Thread;
 //	_pSoundThread->Construct(*runSound);
 //	_pSoundThread->Start();
+//	SoundMgr::Instance()->SetSoundMode(true);
+//	SoundMgr::Instance()->Play();
 	SoundMgr::Instance()->TestAudioPlaying();
 
 	return r;

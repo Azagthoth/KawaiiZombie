@@ -7,8 +7,8 @@
  API Version         : 2.0
  Platform Version    : 2.0.0
  Firmware Version    : S8500XPKI3
- Crashed Time        : 2011/10/16 14:43:29
- Crashed Module      : FOsp.so
+ Crashed Time        : 2011/10/16 16:37:03
+ Crashed Module      : 
 ----------------------------------------------------------------------------------
 
 
@@ -16,4 +16,10 @@
 ----------------------------------------------------------------------------------
 ----------------------------- Recent AppLog Messages -----------------------------
 ----------------------------------------------------------------------------------
-[0] 12763.802,INFO,P35,T00,A195,OspMain (32) > Application started.
+[0] 0825.645,INFO,P35,T00,A161,OspMain (32) > Application started.
+[1] 0996.241,INFO,P35,T00,A164,GameTimer::construct (39) > Constructing timer: delay 5, repeat true
+[2] 0996.244,INFO,P35,T00,A164,GameTimer::start (66) > Starting timer...
+[3] 0996.391,EXCEPTION,P35,T00,A164,Osp::Graphics::__Util::Validate (68) > [E_OUT_OF_RANGE] The argument is out of range. (src(x:819,y:482,w:128,h:128), dst(x:0,y:0,w:800,h:480)).
+[4] 0996.441,EXCEPTION,P35,T00,A164,Osp::Graphics::__Util::Validate (68) > [E_OUT_OF_RANGE] The argument is out of range. (src(x:810,y:476,w:128,h:128), dst(x:0,y:0,w:800,h:480)).
+[5] 0996.488,EXCEPTION,P35,T00,A164,Osp::Graphics::__Util::Validate (68) > [E_OUT_OF_RANGE] The argument is out of range. (src(x:801,y:471,w:128,h:128), dst(x:0,y:0,w:800,h:480)).
+[6] 1000.058,INFO,P35,T00,A161,OspMain (49) > Application finished.

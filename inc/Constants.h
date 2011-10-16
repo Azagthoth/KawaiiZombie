@@ -51,6 +51,11 @@
 								x=null;} \
 							}
 
-
+#define TRY_CATCH(eval, exp, ...) \
+	if (!(eval)) { \
+		AppLog(__VA_ARGS__); \
+		exp; \
+		goto CATCH; \
+	} else {;}
 
 #endif
