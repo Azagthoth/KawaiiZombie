@@ -31,7 +31,7 @@ result
 GameView::OnInitializing(void)
 {
 	_bSound = true;
-	SoundMgr::Instance()->Play();
+	//SoundMgr::Instance()->Play();
 
 	result r = E_SUCCESS;
 	SetOrientation(ORIENTATION_LANDSCAPE);

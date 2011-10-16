@@ -87,6 +87,7 @@ FormHome::OnActionPerformed(const Control& source, int actionId)
 		if (!pGameForm->Initialize())
 			break;
 		PushForm(pGameForm);
+		pGameForm->startTimer();
 	}
 	break;
 
