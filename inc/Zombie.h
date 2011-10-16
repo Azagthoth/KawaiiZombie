@@ -10,10 +10,14 @@
 
 #include "KImage.h"
 
-class Zombie : KImage {
+class Zombie : public KImage {
 public:
-	Zombie(Bitmap* image, Point* pos, String* string);
+	Zombie(Bitmap* image, Point* pos, String string);
 	virtual ~Zombie();
+
+	virtual void Update(int delta);
+protected:
+	bool hunt;
 };
 
 #endif /* ZOMBIE_H_ */

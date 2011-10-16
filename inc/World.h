@@ -10,6 +10,7 @@
 
 #include "KImage.h"
 #include "Singleton.h"
+#include "Nurse.h"
 
 using namespace Osp::Base::Collection;
 
@@ -20,15 +21,17 @@ public:
 	virtual ~World();
 	result Construct();
 	void AddImage(KImage* image);
+	void SetNurse(Nurse* image);
+	Nurse* GetNurse();
 	void MoveView(Point* offset);
 	void Draw(Canvas* target);
 	void Update(int delta);
-	KImage* getImageByName(String* name); //return first image with this name
-	ArrayList* getImagesByNameN(String* name);
-
+	KImage* GetImageByName(String name); //return first image with this name
+	ArrayList* GetImagesByNameN(String name);
 protected:
 	Point* viewPosition;
 	ArrayList* images;
+	Nurse* nurse;
 };
 
 

@@ -333,7 +333,9 @@ src/GameView.d src/GameView.o: ../src/GameView.cpp \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/World.h \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/KImage.h \
  C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Singleton.h \
- C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Constants.h
+ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Nurse.h \
+ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Constants.h \
+ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Zombie.h
 
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/GameView.h:
 
@@ -1065,4 +1067,8 @@ C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/KImage.h:
 
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Singleton.h:
 
+C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Nurse.h:
+
 C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Constants.h:
+
+C:/Users/Fradow/Desktop/Git/KawaiiZombie/inc/Zombie.h:

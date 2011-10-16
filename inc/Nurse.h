@@ -8,10 +8,22 @@
 #ifndef NURSE_H_
 #define NURSE_H_
 
-class Nurse {
+#include "KImage.h"
+
+class Nurse : public KImage {
 public:
-	Nurse();
+	Nurse(Bitmap* image, Point* pos, String string);
 	virtual ~Nurse();
+
+	virtual void Update(int delta);
+	void SetMovement(Point* movement);
+	void SetTarget(Point target);
+	void GetHit();
+	void ResetLife();
+protected:
+	Point* movementOffset;
+	Point target;
+	int life;
 };
 
 #endif /* NURSE_H_ */

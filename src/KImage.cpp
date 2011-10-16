@@ -7,7 +7,7 @@
 
 #include "KImage.h"
 
-KImage::KImage(Bitmap* image, Point* pos, String* string)
+KImage::KImage(Bitmap* image, Point* pos, String string)
 {
 	ressource = image;
 	position = pos;
@@ -16,4 +16,9 @@ KImage::KImage(Bitmap* image, Point* pos, String* string)
 
 KImage::~KImage() {
 	// TODO Auto-generated destructor stub
+}
+
+void KImage::Update(int delta)
+{
+
 }

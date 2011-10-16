@@ -1,6 +1,8 @@
 #include "GameView.h"
 #include "World.h"
 #include "Constants.h"
+#include "math.h"
+#include "Zombie.h"
 
 using namespace Osp::Base;
 using namespace Osp::Ui;
@@ -41,13 +43,13 @@ GameView::OnInitializing(void)
 	}
 
 	WorldManager::Instance()->Construct();
-	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/bg_hospital.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(0, 0), new String("Background")));
-	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/hero_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(400, 240), new String(NURSE)));
-	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(20, 20), new String(ZOMBIE)));
-	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(600, 20), new String(ZOMBIE)));
-	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(40, 360), new String(ZOMBIE)));
-	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(700, 330), new String(ZOMBIE)));
-		/*Player* pPlayer = new Player();
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/bg_hospital.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(0, 0), String("Background")));
+	WorldManager::Instance()->SetNurse(new Nurse(bitmapDecoder->DecodeN(L"/Home/Res/hero_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(400, 240), NURSE));
+	WorldManager::Instance()->AddImage(new Zombie(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(20, 20), ZOMBIE));
+	/*WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(600, 20), ZOMBIE));
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(40, 360), ZOMBIE));
+	WorldManager::Instance()->AddImage(new KImage(bitmapDecoder->DecodeN(L"/Home/Res/zombie_test.png", BITMAP_PIXEL_FORMAT_ARGB8888), new Point(700, 330), ZOMBIE));
+	*/	/*Player* pPlayer = new Player();
 	pPlayer->Construct(*this, null);
 	pPlayer->OpenFile(String(L"/Home/Res/MainMusic.mp3"));
 	pPlayer->SetVolume(50);
@@ -94,6 +96,7 @@ void GameView::startTimer()
 
 void GameView::update(int delta)
 {
+	WorldManager::Instance()->Update(delta);
 	//AppLog("Updating with delta : %d", delta);
 	/*nursePosition->x += 5;
 	if(nursePosition->x > 200)
@@ -121,12 +124,18 @@ void GameView::OnTouchLongPressed(const Osp::Ui::Control& source,const Osp::Grap
 }
 void GameView::OnTouchReleased(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {
+	WorldManager::Instance()->GetNurse()->SetMovement(null);
 }
 void GameView::OnTouchMoved(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {
-	AppLog("Moving nurse");
-	KImage* nurse = WorldManager::Instance()->getImageByName(new String(NURSE));
-	nurse->position->SetPosition(currentPosition - Point(nurse->ressource->GetWidth()/2, nurse->ressource->GetHeight()/2));
+	//AppLog("Moving nurse");
+	Nurse* nurse = WorldManager::Instance()->GetNurse();
+	float distance = sqrt(pow(currentPosition.x - nurse->position->x - nurse->ressource->GetWidth()/2, 2) + pow(currentPosition.y - nurse->position->y - nurse->ressource->GetHeight()/2, 2));
+	if(distance > 10)
+	{
+		nurse->SetTarget(currentPosition);
+		nurse->SetMovement(new Point(currentPosition.x - nurse->position->x - nurse->ressource->GetWidth()/2, currentPosition.y - nurse->position->y - nurse->ressource->GetHeight()/2));
+	}
 }
 void GameView::OnTouchDoublePressed(const Osp::Ui::Control& source,const Osp::Graphics::Point& currentPosition,const Osp::Ui::TouchEventInfo& touchInfo)
 {

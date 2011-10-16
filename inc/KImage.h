@@ -17,11 +17,11 @@ using namespace Osp::Base;
 
 class KImage {
 public:
-	KImage(Bitmap* image, Point* pos, String* string);
+	KImage(Bitmap* image, Point* pos, String string);
 	virtual ~KImage();
 	Bitmap* ressource;
 	Point* position;
-	String* name;
+	String name;
 
 	virtual void Update(int delta);
 };
