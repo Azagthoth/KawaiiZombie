@@ -32,6 +32,11 @@ void World::AddImage(KImage* image)
 	images->Add((Object&)*image);
 }
 
+void World::DeleteImage(KImage* image)
+{
+	images->Remove((Object&)*image,true);
+}
+
 void World::SetNurse(Nurse* image)
 {
 	nurse = image;
