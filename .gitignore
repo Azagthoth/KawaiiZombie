@@ -1,0 +1,7 @@
+#ignoring files from a built
+*.exe
+*.d
+*.o
+*.mk
+*makefile
+*ldflags
